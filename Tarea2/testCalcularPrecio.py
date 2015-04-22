@@ -9,7 +9,7 @@ import unittest
 class Test(unittest.TestCase):
 
 
-    def testName(self):
+    def testCalculaPrecio(self):
         pass
 
 

@@ -6,7 +6,7 @@ Modificacion del codigo legado por FragantSoft.
 
 '''
 
-# ...hola!!!!!
+# Prueba de Susa
 
 from decimal import Decimal
 from datetime import timedelta
@@ -18,7 +18,7 @@ class Tarifa(object):
         self.tasaFinSemana = tasaFinSemana
     
 # Dado un tiempo de reservacion:
-#     tiempoDeReservacionr = [inicioDeReservacion, finDeReservacion]   
+#    tiempoDeReservacionr = [inicioDeReservacion, finDeReservacion]   
 # Calcula el monto a pagar por la misma. 
 def calcularPrecio(tarifa, tiempoDeReservacionr):
         
@@ -49,7 +49,3 @@ def calcularPrecio(tarifa, tiempoDeReservacionr):
             minutosNormales*tarifa.tasaDiaSemana/60 +
             minutosFinDeSemana*tarifa.tasaFinSemana/60
         ).quantize(Decimal('1.00'))
-        
-        
-if __name__ == '__main__':
-    pass

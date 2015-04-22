@@ -3,6 +3,7 @@ Created on 22/4/2015
 ll
 @author: susyroma
 '''
+from calcularPrecio import *
 import unittest
 
 

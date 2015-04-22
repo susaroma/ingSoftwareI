@@ -6,7 +6,7 @@ Modificacion del codigo legado por FragantSoft.
 
 '''
 
-# Prueba de Susa
+# Prueba de Susa!
 # Prueba de Mari
 
 from decimal import Decimal

@@ -1,16 +1,17 @@
 '''
+
 Created on 22/4/2015
-ll
 @author: susyroma
+
 '''
 from calcularPrecio import *
 import unittest
 
 
-class Test(unittest.TestCase):
+class CasosDePrueba(unittest.TestCase):
 
 
-    def testCalculaPrecio(self):
+    def ejecutarCalcularPrecio(self):
         pass
 
 

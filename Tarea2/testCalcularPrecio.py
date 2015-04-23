@@ -4,6 +4,8 @@ ll
 @author: susyroma
 '''
 import unittest
+from calcularPrecio import *
+from datetime import *
 
 
 class Test(unittest.TestCase):

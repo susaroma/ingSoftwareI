@@ -31,7 +31,15 @@ class CasosDePrueba(unittest.TestCase):
         precio = calcularPrecio(tarifaPrueba, tiempoReserva)
         self.assertEqual(precio, 12.50) 
 
-
+    def test7DaysTimer(self):
+        # Caso de prueba tiempo de reservacion = (7) dias con tarifa decima
+        tarifaPrueba = Tarifa(5.50,7.25)
+        reservaIni = datetime(2015, 4, 21, 6, 15, 0, 0)
+        reservaFin = datetime(2015, 4, 28, 6, 15, 0, 0)
+        tiempoReserva = [reservaIni,reservaFin]
+        precio = calcularPrecio(tarifaPrueba, tiempoReserva)
+        self.assertEqual(precio,((5.50*5)+(7.25*2)))
+        
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']

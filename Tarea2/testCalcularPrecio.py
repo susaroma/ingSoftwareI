@@ -4,12 +4,10 @@ Created on 22/4/2015
 @author: susyroma
 
 '''
-from calcularPrecio import *
 import unittest
-<<<<<<< HEAD
-=======
+
 from calcularPrecio import *
->>>>>>> 23cc3419d9c8fb3d04e03b5517c53313ca54dc57
+
 from datetime import *
 
 

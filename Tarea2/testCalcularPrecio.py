@@ -31,7 +31,7 @@ class CasosDePrueba(unittest.TestCase):
         reservaFin = datetime(2015, 4, 21, 6, 30, 0, 0)
         tiempoReserva = [reservaIni,reservaFin]
         precio = calcularPrecio(tarifaPrueba, tiempoReserva)
-        self.assertEqual(precio, 12.50) 
+        self.assertEqual(precio, (50*15)/60) 
     
     def testFinSemana(self):
         # Caso de prueba dias de reservacion (fin de semana) con tarifa entera
@@ -106,6 +106,15 @@ class CasosDePrueba(unittest.TestCase):
         tiempoReserva = [reservaIni,reservaFin]
         precio = calcularPrecio(tarifaPrueba, tiempoReserva)
         self.assertEqual(precio, (((3**21)*7200 + (3**32)*2880)/ 60))
+        
+    def testTarifaChiquita(self):
+        # Caso de prueba tiempo menor a (14) minutos
+        tarifaPrueba = Tarifa(0.00001, 0.002)
+        reservaIni = datetime(2015, 4, 19, 6, 0, 0, 0)
+        reservaFin = datetime(2015, 4, 26, 6, 0, 0, 0)
+        tiempoReserva = [reservaIni, reservaFin]
+        precio = calcularPrecio(tarifaPrueba, tiempoReserva)
+        self.assertEqual(precio, round(Decimal(((0.00001*7200 + 0.002*2880)/ 60)),2))
         
     def testTarifaNegativa(self):
         # Caso de prueba con tarifa negativa

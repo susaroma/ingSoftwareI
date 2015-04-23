@@ -8,10 +8,7 @@ Created on 22/4/2015
 import unittest
 from calcularPrecio import *
 from datetime import *
-
-from calcularPrecio import *
-
-from datetime import *
+from decimal import *
 
 
 class CasosDePrueba(unittest.TestCase):
@@ -61,7 +58,7 @@ class CasosDePrueba(unittest.TestCase):
         reservaFin = datetime(2015, 5, 24, 7, 30, 0, 0)
         tiempoReserva = [reservaIni,reservaFin]
         precio = calcularPrecio(tarifaPrueba, tiempoReserva)
-        self.assertEqual(round(precio,2),round(((((10.12)*2430)+((15.3)*1890))/ 60),2))
+        self.assertEqual(precio,round(Decimal(((((10.12)*2430)+((15.3)*1890))/ 60)),2))
         
     def testFinASemana(self):
         # Caso de prueba dias de reservacion (empieza fin de semana y termina en semana) con tarifa entera
@@ -70,7 +67,7 @@ class CasosDePrueba(unittest.TestCase):
         reservaFin = datetime(2015, 5, 18, 5, 0, 0, 0)
         tiempoReserva = [reservaIni,reservaFin]
         precio = calcularPrecio(tarifaPrueba, tiempoReserva)
-        self.assertEqual(precio,((17*300)+(23*2580))/ 60)
+        self.assertEqual(precio,Decimal(((17*300)+(23*2580))/60))
         
     '''
     def testHoraMinSemana(self):

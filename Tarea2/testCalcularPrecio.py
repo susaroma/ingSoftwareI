@@ -30,6 +30,7 @@ class CasosDePrueba(unittest.TestCase):
         tiempoReserva = [reservaIni,reservaFin]
         precio = calcularPrecio(tarifaPrueba, tiempoReserva)
         self.assertEqual(precio, 1.75) 
+
         
 
 if __name__ == "__main__":

@@ -1,6 +1,5 @@
 '''
 Creado el 17/04/2015
-
 Funcion calcularPrecio para la Tarea 2 de Ing. del Software (ABR-JUL 2015). 
 Modificacion del codigo legado por FragantSoft. 
 

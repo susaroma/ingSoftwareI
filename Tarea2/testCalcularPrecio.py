@@ -4,8 +4,10 @@ Created on 22/4/2015
 @author: susyroma
 
 '''
-from calcularPrecio import *
 import unittest
+
+from calcularPrecio import *
+
 from datetime import *
 
 

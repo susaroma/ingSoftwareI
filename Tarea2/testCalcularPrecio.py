@@ -50,6 +50,7 @@ class CasosDePrueba(unittest.TestCase):
         self.assertEqual(precio, (((3**21)*7200 + (3**32)*2880)/ 60))
         
     def testTarifaNegativa(self):
+        # Caso de prueba con tarifa negativa
         tarifaPrueba = Tarifa(-2, -3)
         reservaIni = datetime(2015, 4, 19, 12, 15, 0, 0)
         reservaFin = datetime(2015, 4, 19, 12, 45, 0, 0)
@@ -57,6 +58,7 @@ class CasosDePrueba(unittest.TestCase):
         self.assertRaises(Exception, calcularPrecio,tarifaPrueba, tiempoReserva)
         
     def testFechaInvalida(self):
+        # Caso de prueba con tiempo de reservacion invalido
         tarifaPrueba = Tarifa(4, 6)
         reservaIni = datetime(2015, 4, 30, 12, 15, 0, 0)
         reservaFin = datetime(2015, 4, 19, 12, 45, 0, 0)
@@ -64,12 +66,39 @@ class CasosDePrueba(unittest.TestCase):
         self.assertRaises(Exception, calcularPrecio,tarifaPrueba, tiempoReserva)
         
     def testTiempoMenor14Min(self):
+        # Caso de prueba tiempo menor a (14) minutos
         tarifaPrueba = Tarifa(4, 6)
         reservaIni = datetime(2015, 6, 29, 12, 0, 0, 0)
         reservaFin = datetime(2015, 6, 29, 12, 14, 0, 0)
         tiempoReserva = [reservaIni, reservaFin]
         self.assertRaises(Exception, calcularPrecio,tarifaPrueba, tiempoReserva)
-
+        
+    def testTiempoExcedido(self):
+        # Caso de prueba tiempo de reservacion excedido
+        tarifaPrueba = Tarifa(4, 6)
+        reservaIni = datetime(2015, 2, 20, 6, 0, 0, 0)
+        reservaFin = datetime(2015, 2, 27, 6, 1, 0, 0)
+        tiempoReserva = [reservaIni, reservaFin]
+        self.assertRaises(Exception, calcularPrecio,tarifaPrueba, tiempoReserva)
+        
+    def testTiempo60minutosDiaSem (self):
+        # Caso de prueba tiempo de (60) minutos en un dia de la semana
+        tarifaPrueba = Tarifa(12,23)
+        reservaIni = datetime(2015, 6, 29, 12, 0, 0, 0)
+        reservaFin = datetime(2015, 6, 29, 13, 0, 0, 0)
+        tiempoReserva = [reservaIni, reservaFin]
+        precio = calcularPrecio(tarifaPrueba, tiempoReserva)
+        self.assertEqual(precio, ((12*60 / 60)))
+        
+    def testTiempo60minutosFinSem (self):
+        # Caso de prueba tiempo de (60) minutos en un dia del fin de semana
+        tarifaPrueba = Tarifa(12,23)
+        reservaIni = datetime(2015, 4, 19, 12, 0, 0, 0)
+        reservaFin = datetime(2015, 4, 19, 13, 0, 0, 0)
+        tiempoReserva = [reservaIni, reservaFin]
+        precio = calcularPrecio(tarifaPrueba, tiempoReserva)
+        self.assertEqual(precio, ((23*60 / 60)))
+        
 if __name__ == '__main__':
     #import sys;sys.argv = ['', 'Test.testName']
     unittest.main()

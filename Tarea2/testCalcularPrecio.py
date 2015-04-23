@@ -23,15 +23,15 @@ class CasosDePrueba(unittest.TestCase):
             pass
     
     def test15MTimeSmallT(self):
-        # Caso de prueba tiempo de reservacion = (15) minutos, tarifa pequenia
-        tarifaPrueba = Tarifa(1.75, 7)
+        # Caso de prueba tiempo de reservacion = (15) minutos, tarifa pequena
+        tarifaPrueba = Tarifa(50,100)
         reservaIni = datetime(2015, 4, 21, 6, 15, 0, 0)
         reservaFin = datetime(2015, 4, 21, 6, 30, 0, 0)
         tiempoReserva = [reservaIni,reservaFin]
         precio = calcularPrecio(tarifaPrueba, tiempoReserva)
-        self.assertEqual(precio, 1.75) 
+        self.assertEqual(precio, 50) 
 
-        
+
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']

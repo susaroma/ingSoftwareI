@@ -6,8 +6,8 @@ Modificacion del codigo legado por FragantSoft.
 
 '''
 
-# Prueba de Susa
-# Prueba de Mari
+# Prueba de Susa!
+# Prueba de Mari!
 
 from decimal import Decimal
 from datetime import timedelta

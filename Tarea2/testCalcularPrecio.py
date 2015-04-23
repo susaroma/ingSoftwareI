@@ -29,7 +29,7 @@ class CasosDePrueba(unittest.TestCase):
         reservaFin = datetime(2015, 4, 21, 6, 30, 0, 0)
         tiempoReserva = [reservaIni,reservaFin]
         precio = calcularPrecio(tarifaPrueba, tiempoReserva)
-        self.assertEqual(precio, 50) 
+        self.assertEqual(precio, 12.50) 
 
 
 
